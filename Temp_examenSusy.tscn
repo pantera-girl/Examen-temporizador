@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://kyv61l1c8yfl"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_0gp4g"]
+[ext_resource type="Texture2D" uid="uid://xo46nr0kicej" path="res://assets/timer.png" id="1_y6xu0"]
+[ext_resource type="FontFile" uid="uid://bttn4sbekg567" path="res://assets/alarm clock.ttf" id="2_8q22b"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0gp4g")
+
+[node name="SpriteTimer" type="Sprite2D" parent="."]
+position = Vector2(498, 372)
+scale = Vector2(0.38137, 0.396584)
+texture = ExtResource("1_y6xu0")
+
+[node name="LabelTimer" type="Label" parent="."]
+modulate = Color(0.118581, 0.118581, 0.118581, 1)
+offset_left = 314.0
+offset_top = 299.0
+offset_right = 577.0
+offset_bottom = 404.0
+scale = Vector2(1.40017, 1.02883)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_8q22b")
+theme_override_font_sizes/font_size = 100
+text = "00:00"
+
+[node name="LabelDec" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 588.0
+offset_top = 323.0
+offset_right = 602.0
+offset_bottom = 346.0
+scale = Vector2(7.34533, 6.30352)
+theme_override_fonts/font = ExtResource("2_8q22b")
+text = ".0"
+
+[node name="ModeLabel" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 364.502
+offset_top = 12.3341
+offset_right = 421.502
+offset_bottom = 35.3341
+scale = Vector2(0.284043, 0.27739)
+theme_override_fonts/font = ExtResource("2_8q22b")
+text = "TIMER"
+
+[node name="ModeButton" type="Button" parent="."]
+offset_left = 708.0
+offset_top = 383.0
+offset_right = 716.0
+offset_bottom = 391.0
+scale = Vector2(12.2798, 12.4987)
+
+[node name="MainButton" type="Button" parent="."]
+offset_left = 909.513
+offset_top = 795.26
+offset_right = 917.513
+offset_bottom = 803.26
+scale = Vector2(11.3236, 8.4099)
+
+[node name="StateLabel" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 351.0
+offset_top = 238.0
+offset_right = 417.0
+offset_bottom = 261.0
+scale = Vector2(2.74011, 3.29135)
+theme_override_fonts/font = ExtResource("2_8q22b")
+text = "STOPPED"
+
+[node name="ButtonMin" type="Button" parent="."]
+offset_left = 336.0
+offset_top = 468.0
+offset_right = 381.0
+offset_bottom = 476.0
+scale = Vector2(1.59324, 9.0208)
+
+[node name="ButtonSec" type="Button" parent="."]
+offset_left = 447.0
+offset_top = 466.0
+offset_right = 455.0
+offset_bottom = 474.0
+scale = Vector2(9, 9.16667)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="ModeButton" to="." method="_on_mode_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
